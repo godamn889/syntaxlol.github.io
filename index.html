@@ -58,6 +58,9 @@
 
     .button-container {
       margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     button {
@@ -70,10 +73,19 @@
       font-size: 16px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      min-width: 200px;
     }
 
     button:hover {
       background-color: #005a9e;
+    }
+
+    .mac-btn {
+      background-color: #555;
+    }
+
+    .mac-btn:hover {
+      background-color: #333;
     }
 
     #editor {
@@ -120,6 +132,8 @@
   <div class="button-container">
     <button onclick="loadSyntaxScript()">Load Syntax.lol Script</button>
     <button onclick="loadSTWGui()">Load STW GUI Script</button>
+    <button class="mac-btn" onclick="loadSyntaxMacScript()">Syntax.lol Mac Support</button>
+    <button class="mac-btn" onclick="loadSTWGuiMac()">STW GUI Mac Support</button>
   </div>
 
   <div id="editor">-- Click a button above to load script here...</div>
@@ -147,6 +161,20 @@ loadstring(game:HttpGet("https://gist.githubusercontent.com/godamn889/0eec50cc32
     function loadSTWGui() {
       const script = `-- STW GUI Script
 loadstring(game:HttpGet("https://gist.githubusercontent.com/godamn889/dcdf598bddbf8c230329e3c6722e572d/raw/2b785ceb9f9d7c45baaba86ac1d2604b04f8d874/vvkuk%2520like"))()`;
+      editor.setValue(script, -1);
+    }
+
+    function loadSyntaxMacScript() {
+      const script = `-- Syntax.lol Mac Support Script
+loadstring(game:HttpGet("https://gist.githubusercontent.com/godamn889/bffeffe5d8438787806ca78320b9b3f1/raw/86d7998bb90e7228879cc221b67b0f67b8316fdd/macbook%2520support"))()
+-- Additional Mac-specific adjustments may be needed`;
+      editor.setValue(script, -1);
+    }
+
+    function loadSTWGuiMac() {
+      const script = `-- STW GUI Mac Support Script
+loadstring(game:HttpGet("https://gist.githubusercontent.com/godamn889/84e00c2927ac36fe10fa0ae350982846/raw/88f2c603f7329ed2ee6a792f2a50e7ce0d513817/maqkboo%2520syntaxlol"))()
+-- Additional Mac-specific adjustments may be needed`;
       editor.setValue(script, -1);
     }
   </script>
